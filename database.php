@@ -26,6 +26,10 @@ $dbname = "widget_corp";
 			while($row = mysqli_fetch_assoc($result)){
 			echo '<h1 class="page-title">' . $row['menu_name'] . '</h1>' ;
 			}
+			
+			mysqli_free_result($result);
+			
+
 		?>
 	</pre>
 </body>
