@@ -23,14 +23,14 @@ $dbname = "widget_corp";
 <body>
 	<pre>
 		<?php  
-			while($row = mysqli_fetch_assoc($result)){
-			echo '<h1 class="page-title">' . $row['menu_name'] . '</h1>' ;
-			}
+			while($row = mysqli_fetch_assoc($result)){ ?>
+			<h1 class="page-title"><?php echo $row['menu_name'];?></h1> 
+			<a href="database-update.php?id=<?php echo $row['id'];?>">Muuda</a>
+		
 			
-			mysqli_free_result($result);
-			
+		<?php }?>
+		<?php  mysqli_free_result($result);?>
 
-		?>
 	</pre>
 </body>
 </html>
