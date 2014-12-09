@@ -36,7 +36,7 @@ $dbname = "widget_corp";
 		$result = mysqli_query($connect, $query );
 		$row = mysqli_fetch_assoc($result);
 		
-		$menu_name = $_POST['menu_name'];
+		$menu_name = $row['menu_name'];
 		$position = $row['position'];
 		$visible = $row['visible'];
 			
@@ -65,7 +65,7 @@ $dbname = "widget_corp";
 	<form action="database-update.php?id=<?php echo $id; ?>" method="post">
 		<div class="form-field">
 			<label for="menu-name">Teema nimi</label>
-			<input id="menu-name" type="text" name="menu_name">
+			<input id="menu-name" type="text" name="menu_name" value="<?php echo $menu_name ?>">
 		</div>
 			
 		<div class="form-field">
