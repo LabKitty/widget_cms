@@ -42,9 +42,7 @@ $dbname = "widget_corp";
 		}
 	?>		
 	
-	<pre>
-		<?php print_r($_POST);?>
-	</pre>
+
 		
 	<form action="database_create.php" method="post">
 		<div class="form-field">
@@ -73,6 +71,8 @@ $dbname = "widget_corp";
 			<input type="submit" name="submit" value="Saada">
 		</div>
 	</form>
+	
+	<a href="index.php"> Mine tagasi </a>
 </body>
 </html>
 

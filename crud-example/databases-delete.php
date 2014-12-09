@@ -1,4 +1,8 @@
 <?php
+	if (!isset($_GET['id'])){
+		header('Location: index.php');
+	}
+	
 $dbhost = "localhost";
 $dbuser = "widget_cms";
 $dbpass = "secretpassword";
@@ -20,6 +24,7 @@ $dbname = "widget_corp";
 <html lang ="en">
 <head>
 	<meta charset ="UTF-8">
+	<meta http-equiv="refresh" content="2; url=index.php">
 	<title> Databases </title>
 	<style>
 		.notice{
@@ -31,14 +36,14 @@ $dbname = "widget_corp";
 	</style>
 </head>
 <body>
-	<pre>
+	
 		<?php if ($result && mysqli_affected_rows($connect)) { ?>
 			<p class="notice"><?php echo "Rida kustutatud"; ?></p>
 		<?php } else { ?>
 			<p class="error"><?php echo "Sellist rida andmebaasis ei ole"; ?></p>
 		<?php } ?>
 
-	</pre>
+	
 </body>
 </html>
 

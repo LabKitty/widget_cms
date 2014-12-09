@@ -1,4 +1,5 @@
 <?php
+	
 $dbhost = "localhost";
 $dbuser = "widget_cms";
 $dbpass = "secretpassword";
@@ -10,7 +11,7 @@ $dbname = "widget_corp";
 		die("Database connection failed: " . mysqli_connect_error() . " (" . mysqli_connect_errno() . ").");
 	}
 	
-	$query = "SELECT * FROM subjects";
+	$query = "SELECT * FROM subjects where visible = 1 order by position";
 	$result = mysqli_query($connect, $query );
 ?>
 
@@ -21,7 +22,8 @@ $dbname = "widget_corp";
 	<title> Databases </title>
 </head>
 <body>
-	<pre>
+
+		<a href="database_create.php"> Lisa uus</a>
 		<?php  
 			while($row = mysqli_fetch_assoc($result)){ ?>
 			<h1 class="page-title"><?php echo $row['menu_name'];?></h1> 
@@ -31,7 +33,7 @@ $dbname = "widget_corp";
 		<?php }?>
 		<?php  mysqli_free_result($result);?>
 
-	</pre>
+	
 </body>
 </html>
 
