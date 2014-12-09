@@ -51,6 +51,10 @@ $dbname = "widget_corp";
 <html lang ="en">
 <head>
 	<meta charset ="UTF-8">
+	<?php if (isset($_POST['submit'])) {?>
+		<meta http-equiv="refresh" content="2; url=index.php">
+	<?php } ?>	
+		
 	<title> Databases </title>
 </head>
 
