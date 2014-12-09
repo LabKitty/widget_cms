@@ -10,7 +10,9 @@ $dbname = "widget_corp";
 		die("Database connection failed: " . mysqli_connect_error() . " (" . mysqli_connect_errno() . ").");
 	}
 	
-	$query = "SELECT * FROM subjects";
+	$id = $_GET['id'];
+	
+	$query = "DELETE FROM subjects where id = {$id}";
 	$result = mysqli_query($connect, $query );
 ?>
 
@@ -19,17 +21,22 @@ $dbname = "widget_corp";
 <head>
 	<meta charset ="UTF-8">
 	<title> Databases </title>
+	<style>
+		.notice{
+			color:green;
+		}
+		.error{
+			color:red;
+		}
+	</style>
 </head>
 <body>
 	<pre>
-		<?php  
-			while($row = mysqli_fetch_assoc($result)){ ?>
-			<h1 class="page-title"><?php echo $row['menu_name'];?></h1> 
-			<a href="database-update.php?id=<?php echo $row['id'];?>">Muuda</a>
-		
-			
-		<?php }?>
-		<?php  mysqli_free_result($result);?>
+		<?php if ($result && mysqli_affected_rows($connect)) { ?>
+			<p class="notice"><?php echo "Rida kustutatud"; ?></p>
+		<?php } else { ?>
+			<p class="error"><?php echo "Sellist rida andmebaasis ei ole"; ?></p>
+		<?php } ?>
 
 	</pre>
 </body>

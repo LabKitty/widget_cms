@@ -72,7 +72,7 @@ $dbname = "widget_corp";
 			<label for="position">Positsioon</label>
 			<select name="position">
 				<?php for ($i = 1; $i < 16; $i++){ ?>
-					<option value="<?php echo $i;?>"> <?php echo $i; ?> </option>
+					<option value="<?php echo $i;?>" <?php if ($i == $position) { echo "selected"; } ?> > <?php echo $i; ?> </option>
 				<?php }?>
 			</select>
 		</div>
@@ -80,8 +80,8 @@ $dbname = "widget_corp";
 		<div class="form-field">
 			<label for="visible">Nähtavus</label>
 			<select name="visible">
-				<option value="1">Nähtav</option>
-				<option value="0">Peidetud</option>
+				<option value="0"<?php if ($visible == 0) { echo " selected"; } ?> >Peidetud</option>
+				<option value="1"<?php if ($visible == 1) { echo " selected"; } ?> >Nähtav</option>
 			</select>
 		</div>
 			
